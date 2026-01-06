@@ -1,0 +1,27 @@
+.container__grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    
+}
+
+.container__grid__click{
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+}
+
+.container__grid__click:hover{
+    transform: translateY(-15px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+    border-radius: 10px;
+    background-color: azure;
+}
+
+@media (max-width: 760px){
+    .container__grid {
+        grid-template-columns: 1fr;
+    }
+}
+

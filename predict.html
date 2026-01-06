@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicción Individual</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/predict.css">
+</head>
+
+<body>
+
+    <header class="container header__container">
+        <button class="btn__back" onclick="location.href='home.html'">Volver</button>
+        <h1>Protección Individual</h1>
+    </header>
+
+    <main class="container main__container">
+        <section class="card">
+            <form id="predictForm" action="/procesar-formulario">
+
+                <div class="form__group">
+                    <label for="age">Edad</label>
+                    <input id="age" type="number" name="Age" required>
+                </div>
+
+                <div class="form__group">
+                    <label for="balance">Balance</label>
+                    <input id="balance" type="number" name="Balance" required>
+                </div>
+
+                <div class="form__group">
+                    <label for="creditScore">Credit Score</label>
+                    <input id="creditScore" type="number" name="CreditScore" required>
+                </div>
+
+                <div class="form__group">
+                    <label for="salary">Salario Estimado</label>
+                    <input id="salary" type="number" name="EstimatedSalary" required>
+                </div>
+
+                <div class="form__group">
+                    <label for="gender">Género</label>
+                    <select id="gender" name="Gender" required>
+                        <option value="">Seleccione</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+
+                <div class="form__group">
+                    <label for="">País</label>
+                    <select name="Geography" id="geo" required>
+                        <option value="">Seleccione</option>
+                        <option value="Spain">Spain</option>
+                        <option value="France">France</option>
+                        <option value="Germany">Germany</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form__group">
+                    <label for="crcard">Indique si tiene tarjeta de crédito</label>
+                    <select name="HasCrCard" id="crcard" required>
+                        <option value="0">No</option>
+                        <option value="1">Si</option>
+                    </select>
+                </div>
+
+                <div class="form__group">
+                    <label for="active">Es miembro activo</label>
+                    <select name="IsActiveMember" id="active" required>
+                        <option value="0">No</option>
+                        <option value="1">Si</option>
+                    </select>
+                </div>
+
+                <div class="form__group">
+                    <label for="products">Número de productos</label>
+                    <select name="NumOfProducts" id="products" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+
+                <div class="form__group">
+                    <label for="tenure">Tenure</label>
+                    <input id="tenure" type="number" name="Tenure" required>
+                </div>
+
+                <button class="btn btn__primary" type="submit">Predecir</button>
+
+            </form>
+
+            <div id="result" aria-live="polite"></div>
+        </section>
+    <main>
+    <script src="/js/config.js"></script>
+    <script src="/js/api.js"></script>
+    <script src="/js/utils.js"></script>
+    <script src="/js/predict.js"></script>
+    
+
+</body>
+
+</html>

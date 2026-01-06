@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicción por CSV</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/predict_csv.css">
+</head>
+<body>
+
+    <header class="container header__container">
+        <button class="btn__back" onclick="location.href='home.html'">Volver</button>
+        <h1>Predicción por Archivo CSV</h1>
+    </header>
+
+
+    <main class="container main__container">
+        <section class="container__card">
+            <label for="csvFile">Seleccione el archivo CSV</label>
+            <input type="file" id="csvFile" accept=".csv">
+            <br><br>
+
+            <button id="button__enviar" class="btn btn__primary">Enviar Archivo</button>
+
+            <div id="download"></div>
+        </section>
+    </main>
+
+    <script src="/js/config.js"></script>
+    <script src="/js/api.js"></script>
+    <script src="/js/utils.js"></script>
+    <script src="/js/predict_csv.js"></script>
+    
+    
+</body>
+</html>
