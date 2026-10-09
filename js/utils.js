@@ -21,13 +21,13 @@ function setLoading(button, isLoading){
 }
 
 function getRiskLevel(probability) {
-    let risk= "bajo"
+    let risk= "bajo";
     
     if (probability >= 0.7) {
-        risk = "alto"
-    } if (probability >= 0.4 && probability < 0.7) {
-        risk = "medio"
+        risk = "alto";
+    } else if (probability >= 0.4 && probability < 0.7) {
+        risk = "medio";
     }
-    return risk
+    return risk;
 }
 
