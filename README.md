@@ -98,7 +98,7 @@ peticiones a la API.
 **Opción 1: Python**
 
 ```bash
-git clone https://github.com/USUARIO/REPO.git
+git clone https://github.com/jpz555/Churn-Web-v1.git
 cd REPO
 python -m http.server 5500
 ```
@@ -115,7 +115,7 @@ La URL de la API se define en `js/config.js`:
 
 ```js
 // js/config.js  (TODO: ajustar al contenido real del archivo)
-const API_URL = "https://TU-SERVICIO.onrender.com";
+const API_URL = "https://github.com/jpz555/churn-fastapi";
 ```
 
 | Entorno | Valor sugerido |
@@ -140,7 +140,7 @@ Cualquier hosting de sitios estáticos sirve. Dos opciones gratuitas:
 
 1. En el repositorio: **Settings → Pages**.
 2. En *Source*, elige la rama `main` y la carpeta `/ (root)`.
-3. El sitio queda en `https://USUARIO.github.io/REPO/`.
+3. El sitio queda en `https://github.com/jpz555/Churn-Web-v1`.
 
 Las rutas del proyecto son relativas (`styles/…`, `js/…`), así que funcionan aunque el sitio
 se publique en una subcarpeta.
@@ -163,11 +163,11 @@ se publique en una subcarpeta.
 
 ## Historial de mejoras
 
-Cada mejora se documenta en [`docs/mejoras/`](docs/mejoras/) con el problema, los cambios y cómo verificarlos.
+Cada mejora se documenta en [`docs/mejoras/`](release-notes/) con el problema, los cambios y cómo verificarlos.
 
 | # | Mejora | Fecha |
 |---|--------|-------|
-| 001 | [Rediseño de la página de inicio](docs/mejoras/001-mejora-home.md) | 2026-10-08 |
+| 001 | [Rediseño de la página de inicio](release-notes/v1.2.0.md) | 2026-10-08 |
 
 ## Próximos pasos
 
