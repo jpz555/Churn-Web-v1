@@ -1,13 +1,17 @@
 :root {
     --primary: #0f4c81;
+    --primary-dark: #0a2f52;
     --secondary: #1e90ff;
     --success: #2ecc71;
     --danger: #e74c3c;
 
-    
     --bg: #f4f6f9;
     --card: #ffffff;
     --text: #333;
+    --text-muted: #5b6878;
+
+    /* Archivo se carga desde Google Fonts; si no se encuentra, usa las del sistema */
+    --font: "Archivo", "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
 }
 
 * {
@@ -16,12 +20,13 @@
 
 body {
     margin: 0;
-    font-family: "Segor UI", sans-serif;
+    font-family: var(--font);
+    line-height: 1.5;
     background-color: var(--bg);
     color: var(--text);
 }
 
-.container{
+.container {
     max-width: 1100px;
     margin: auto;
 }
@@ -30,15 +35,15 @@ body {
     padding: 40px 20px 20px;
 }
 
-.main__container{
+.main__container {
     padding: 20px;
 }
 
-.container__card{
+.container__card {
     background: var(--card);
     border-radius: 12px;
     padding: 25px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
 .btn {
@@ -49,22 +54,26 @@ body {
     font-size: 16px;
 }
 
-.btn__primary{
+.btn:focus-visible {
+    outline: 3px solid var(--secondary);
+    outline-offset: 2px;
+}
+
+.btn__primary {
     background: var(--primary);
     color: white;
 }
 
-
-.btn__secondary{
+.btn__secondary {
     background: var(--secondary);
     color: white;
 }
 
-.btn__back{
+.btn__back {
     background: transparent;
     color: var(--primary);
     margin-bottom: 20px;
-    font-weight:  bold;
+    font-weight: bold;
     cursor: pointer;
     margin-bottom: 10px;
 }

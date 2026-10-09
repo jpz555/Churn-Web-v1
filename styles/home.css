@@ -1,27 +1,224 @@
-.container__grid{
+/* ---------- Encabezado: banda azul a todo lo ancho ---------- */
+/*Version 1.2.0*/
+.header__container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    align-items: center;
+    gap: 40px;
+    padding: 72px 20px 136px;
+    color: #fff;
+    background: var(--primary-dark);
+    /* El fondo se extiende a todo el ancho de la pantalla sin sacar el
+       contenido de .container (sigue limitado a 1100px) */
+    box-shadow: 0 0 0 100vmax var(--primary-dark);
+    clip-path: inset(0 -100vmax);
+}
+
+.header__container h1 {
+    margin: 0;
+    max-width: 14ch;
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
+    font-weight: 800;
+    font-stretch: 115%;
+    line-height: 1.04;
+    letter-spacing: -0.01em;
+}
+
+.header__container p {
+    margin: 20px 0 0;
+    max-width: 46ch;
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.78);
+}
+
+/* ---------- Gráfica del encabezado (regresión logística) ---------- */
+
+.header__chart {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}
+
+.chart__threshold {
+    stroke: rgba(255, 255, 255, 0.3);
+    stroke-width: 1.5;
+    stroke-dasharray: 6 8;
+}
+
+.chart__label {
+    fill: rgba(255, 255, 255, 0.6);
+    font-size: 15px;
+}
+
+.dot {
+    fill: rgba(255, 255, 255, 0.4);
+}
+
+.dot--churn {
+    fill: var(--danger);
+}
+
+.chart__curve {
+    fill: none;
+    stroke: #6cbcff;
+    stroke-width: 5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    /* La curva se "dibuja" una sola vez al cargar la página */
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: draw-curve 1.6s 0.2s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.chart__dots {
+    opacity: 0;
+    animation: fade-in 0.6s 0.1s ease-out forwards;
+}
+
+@keyframes draw-curve {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fade-in {
+    to {
+        opacity: 1;
+    }
+}
+
+
+/*Tarjetas: suben y montan sobre la banda*/
+.main__container {
+    position: relative;
+    margin-top: -88px;
+    /* z-index: 1; */
+    padding-bottom: 64px;
+}
+
+/*El aspecto base viene de .container__card (main.css)*/
+
+/*Versión 1.0.0*/
+.container__grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
-    
 }
 
-.container__grid__click{
+/* El aspecto de tarjeta (fondo, borde redondeado, padding y sombra) lo da
+   .container__card de main.css. Aquí solo va el comportamiento del enlace. */
+.container__grid__click {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 32px;
+    border-radius: 16px;
+    border: 1px solid rgba(15, 76, 129, 0.08);
+    box-shadow: 0 18px 40px rgba(10, 47, 82, 0.14);
+    color: inherit;
     text-decoration: none;
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
-.container__grid__click:hover{
-    transform: translateY(-15px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
-    border-radius: 10px;
+/*Version 1.2.0
+--*/
+.click__icon {
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: rgba(30, 144, 255, 0.12);
+    color: var(--primary);
+}
+
+.container__grid__click h2 {
+    margin: 8px 0 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-stretch: 108%;
+    color: var(--primary);
+}
+
+.container__grid__click p {
+    margin: 0;
+    flex-grow: 1;
+    /* empuja el CTA al fondo: tarjetas alineadas */
+    color: var(--text-muted);
+}
+
+.click__cta {
+    margin-top: 8px;
+    align-self: flex-start;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: var(--primary);
+    color: #fff;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+/*Versión 1.0.0*/
+/* Mismo efecto con mouse y con teclado */
+.container__grid__click:hover,
+.container__grid__click:focus-visible {
+    transform: translateY(-6px);
+    box-shadow: 0 26px 50px rgba(10, 47, 82, 0.2);
+    /* border-radius: 10px; */
     background-color: azure;
 }
 
-@media (max-width: 760px){
+.container__grid__click:hover .click__cta,
+.container__grid__click:focus-visible .click__cta {
+    background: var(--secondary);
+}
+
+.container__grid__click:focus-visible {
+    outline: 3px solid var(--secondary);
+    outline-offset: 4px;
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 760px) {
+    .header__container {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 48px 20px 112px;
+    }
+
+    .header__chart {
+        max-width: 420px;
+    }
+
+    .main__container {
+        margin-top: -72px;
+    }
+
     .container__grid {
         grid-template-columns: 1fr;
     }
 }
 
+/* Respeta la preferencia del sistema de reducir animaciones */
+/* ---------- Movimiento reducido ---------- */
+@media (prefers-reduced-motion: reduce) {
+
+    .chart__curve,
+    .chart__dots {
+        animation: none;
+        stroke-dashoffset: 0;
+        opacity: 1;
+    }
+
+    .container__grid__click,
+    .click__cta {
+        transition: none;
+    }
+
+    .container__grid__click:hover,
+    .container__grid__click:focus-visible {
+        transform: none;
+    }
+}
