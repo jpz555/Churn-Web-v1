@@ -79,12 +79,17 @@ Así, cambiar de entorno (local ↔ producción) solo requiere editar `config.js
 ├── styles/
 │   ├── main.css            # Estilos globales: variables, layout, tarjetas y botones
 │   └── home.css            # Estilos exclusivos de la página de inicio
+│   └── predict.css         # Estilos exclusivos de pagina de predicción (solo cliente)
+│   └── predict_csv.css     # Estilos exclusivos de pagina de predicción (archivo varios clientes)
 ├── js/
 │   ├── config.js           # URL de la API
 │   └── api.js              # Peticiones a la API
+│   └── utils.js            # Utilidades de interfaz del usuario lógica de negico
+│   └── predict.js          # Logica prediccion cliente
+│   └── predict_csv.js      # Logica prediccion clientes
 └── docs/
     ├── img/                # Capturas para la documentación
-    └── mejoras/            # Registro de mejoras del proyecto
+    └── release-notes/      # Registro de mejoras del proyecto
 ```
 
 <!-- TODO: agregar aquí otros archivos que existan (p. ej. styles/predict.css, js/predict.js) -->
@@ -163,11 +168,11 @@ se publique en una subcarpeta.
 
 ## Historial de mejoras
 
-Cada mejora se documenta en [`docs/mejoras/`](release-notes/) con el problema, los cambios y cómo verificarlos.
+Cada mejora se documenta en [`docs/mejoras/`](docs/release-notes/) con el problema, los cambios y cómo verificarlos.
 
 | # | Mejora | Fecha |
 |---|--------|-------|
-| 001 | [Rediseño de la página de inicio](release-notes/v1.2.0.md) | 2026-10-08 |
+| 001 | [Rediseño de la página de inicio](docs/release-notes/v1.2.0.md) | 2026-10-08 |
 
 ## Próximos pasos
 
